@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="text-3">
     this is video 2 gif
   </div>
 </template>
