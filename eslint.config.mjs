@@ -7,5 +7,6 @@ export default antfu({
     'no-console': 'off',
     'new-cap': 'off',
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
-  },
+    'comma-dangle': ['error', 'never'],
+  }
 })

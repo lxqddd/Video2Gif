@@ -4,6 +4,5 @@ A desktop application for converting videos to GIFs.
 
 ## Features
 
-💪 Supports screen recording. 
+💪 Supports screen recording.
 🖥 Supports local video conversion.
-
