@@ -1,35 +1,35 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <div class="text-3">
-    this is video 2 gif
+  <div>
+    <div>
+      <input v-show="false" ref="fileInputRef" type="file" @change="handleChange">
+      <button @click="handleSelectFile">选择文件</button>
+    </div>
+    <div class="flex mt-3">
+      <div class="flex-1 mr-3">
+        <video v-if="videoSrc" :src="videoSrc" controls class="w-100%" />
+      </div>
+      <div class="flex-1">this is Gif</div>
+    </div>
   </div>
 </template>
 
-<style>
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const fileInputRef = ref<HTMLInputElement>()
+const videoSrc = ref('')
+const videoPath = ref('')
+const handleChange = (e: Event) => {
+  const target = e.target as HTMLInputElement
+  const file = target.files?.[0]
+  if (file) {
+    console.log(file)
+    videoSrc.value = URL.createObjectURL(file)
+    videoPath.value = file.path
+  }
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+const handleSelectFile = () => {
+  fileInputRef.value?.click()
 }
-
-.logo.electron:hover {
-  filter: drop-shadow(0 0 2em #9FEAF9);
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+</script>
