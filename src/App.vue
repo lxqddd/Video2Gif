@@ -3,6 +3,7 @@
     <div>
       <input v-show="false" ref="fileInputRef" type="file" @change="handleChange">
       <button @click="handleSelectFile">选择文件</button>
+      <button @click="handleTransform" class="ml-2">开始转换</button>
     </div>
     <div class="flex mt-3">
       <div class="flex-1 mr-3">
@@ -31,5 +32,9 @@ const handleChange = (e: Event) => {
 
 const handleSelectFile = () => {
   fileInputRef.value?.click()
+}
+
+const handleTransform = () => {
+  window.ipcRenderer.send('dealWith-video', videoPath.value)
 }
 </script>

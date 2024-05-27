@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import os from 'node:os'
 import { BrowserWindow, app, ipcMain, shell } from 'electron'
-import { selectFile } from './src/video2Gif'
+import { dealWithVideo, selectFile } from './src/video2Gif'
 
 // eslint-disable-next-line unused-imports/no-unused-vars
 const require = createRequire(import.meta.url)
@@ -64,6 +64,7 @@ app.whenReady().then(createWindow)
 
 app.on('ready', () => {
   selectFile()
+  dealWithVideo()
 })
 
 app.on('window-all-closed', () => {
