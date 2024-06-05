@@ -12,6 +12,7 @@ export default antfu({
     '@typescript-eslint/consistent-type-imports': 'off',
     'vue/component-tags-order': ['error', { order: ['template', 'script', 'style'] }],
     'antfu/top-level-function': 'off',
+    'ts/no-require-imports': 'off',
   },
   vue: {
     overrides: {
